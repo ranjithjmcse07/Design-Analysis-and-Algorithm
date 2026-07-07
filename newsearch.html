@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Search Algorithm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 500px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        .array-display {
+            background: #eee;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 16px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Linear Search Demonstration</h2>
+    
+    <!-- Step 1: Display the array -->
+    <p><strong>Array Elements:</strong></p>
+    <div class="array-display" id="array-box">[12, 45, 7, 23, 56, 89, 34]</div>
+
+    <!-- Step 2: Take target element from user -->
+    <label for="targetInput">Enter the element to search:</label><br><br>
+    <input type="number" id="targetInput" placeholder="e.g., 23">
+    <button onclick="linearSearch()">Search</button>
+
+    <!-- Step 4: Output result -->
+    <div id="result"></div>
+</div>
+
+<script>
+    // Step 1: Create an array with 7 elements
+    const arr =;
+
+    function linearSearch() {
+        // Step 2: Take target element from user input
+        const targetInput = document.getElementById("targetInput").value;
+        const resultDiv = document.getElementById("result");
+        
+        // Reset result text color
+        resultDiv.style.color = "black";
+
+        // Validate input
+        if (targetInput === "") {
+            resultDiv.innerHTML = "Please enter a number.";
+            resultDiv.style.color = "red";
+            return;
+        }
+
+        const target = parseInt(targetInput);
+        let found = false;
+
+        // Step 3: Linear Search
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === target) {
+                resultDiv.innerHTML = `Element found at index ${i}`;
+                resultDiv.style.color = "green";
+                found = true;
+                break;
+            }
+        }
+
+        // Step 4: If not found
+        if (!found) {
+            resultDiv.innerHTML = "Element not found in the array";
+            resultDiv.style.color = "red";
+        }
+    }
+</script>
+
+</body>
+</html>
